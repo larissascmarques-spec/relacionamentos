@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lara — Análise de Conversa</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f8f1f3;
+      color: #1e1218;
+    }
+    .wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+    .card {
+      background: #fff;
+      border: 1px solid #ead6db;
+      border-radius: 14px;
+      padding: 20px;
+      margin-bottom: 16px;
+    }
+    h1 { margin: 0 0 8px; color: #7a2d39; }
+    .sub { margin: 0; color: #6a4a54; }
+    label { display: block; font-weight: bold; margin: 10px 0 6px; }
+    textarea {
+      width: 100%;
+      min-height: 120px;
+      resize: vertical;
+      border: 1px solid #d9c3ca;
+      border-radius: 10px;
+      padding: 12px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    #conversa { min-height: 260px; }
+    button {
+      background: #b85460;
+      border: 0;
+      color: #fff;
+      border-radius: 999px;
+      padding: 14px 22px;
+      font-size: 15px;
+      cursor: pointer;
+      margin-top: 12px;
+    }
+    button:disabled { opacity: 0.6; cursor: wait; }
+    .hint { font-size: 13px; color: #6a4a54; margin-top: 8px; }
+    .error {
+      background: #fff0f1;
+      border: 1px solid #f2c7cd;
+      color: #8f2f3c;
+      border-radius: 10px;
+      padding: 10px;
+      margin-top: 12px;
+      display: none;
+    }
+    pre {
+      white-space: pre-wrap;
+      background: #fff;
+      border: 1px solid #ead6db;
+      border-radius: 10px;
+      padding: 14px;
+      line-height: 1.6;
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h1>Lara</h1>
+      <p class="sub">Análise cuidadosa de conversas de relacionamento (WhatsApp e similares).</p>
+    </div>
+
+    <div class="card">
+      <label for="contexto">Contexto (opcional)</label>
+      <textarea id="contexto" placeholder="Ex.: estamos juntos há 2 anos e tivemos discussões frequentes nas últimas semanas."></textarea>
+
+      <label for="conversa">Conversa (obrigatório)</label>
+      <textarea id="conversa" placeholder="Cole aqui a conversa exportada do WhatsApp..."></textarea>
+
+      <button id="analisarBtn">Analisar com a Lara</button>
+      <p class="hint">Formato aceito: texto livre ou export do WhatsApp.</p>
+      <div id="errorBox" class="error"></div>
+    </div>
+
+    <div class="card">
+      <label>Resultado da análise</label>
+      <pre id="resultado">A análise aparecerá aqui.</pre>
+    </div>
+  </div>
+
+  <script>
+    const btn = document.getElementById("analisarBtn");
+    const resultado = document.getElementById("resultado");
+    const errorBox = document.getElementById("errorBox");
+
+    async function analisar() {
+      const contexto = document.getElementById("contexto").value || "";
+      const conversa = document.getElementById("conversa").value || "";
+
+      if (!conversa.trim()) {
+        errorBox.style.display = "block";
+        errorBox.textContent = "Cole uma conversa para continuar.";
+        return;
+      }
+
+      errorBox.style.display = "none";
+      btn.disabled = true;
+      resultado.textContent = "Gerando análise...";
+
+      try {
+        const resp = await fetch("/api/lara", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ contexto, conversa })
+        });
+
+        const data = await resp.json();
+        if (!resp.ok) {
+          throw new Error(data.error || "Falha ao gerar análise.");
+        }
+
+        resultado.textContent = data.analysis || "Sem resposta.";
+      } catch (err) {
+        errorBox.style.display = "block";
+        errorBox.textContent = err.message || "Erro inesperado.";
+        resultado.textContent = "A análise aparecerá aqui.";
+      } finally {
+        btn.disabled = false;
+      }
+    }
+
+    btn.addEventListener("click", analisar);
+  </script>
+</body>
+</html>
