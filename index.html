@@ -1,659 +1,1680 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Analisa a Conversa — Descubra o que está acontecendo no seu relacionamento</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet"/>
-<style>
-*{margin:0;padding:0;box-sizing:border-box;}
-:root{
-  --rose:#b85460;
-  --rose-l:#f7eaec;
-  --rose-d:#7a2d39;
-  --creme:#fdf9f5;
-  --creme-e:#f4ede4;
-  --texto:#160e14;
-  --texto-s:#6a4a54;
-  --texto-m:#a07888;
-  --borda:#e6d4d8;
-  --branco:#ffffff;
-  --preto:#0e090d;
-}
-html{scroll-behavior:smooth;}
-body{font-family:'DM Sans',sans-serif;background:var(--creme);color:var(--texto);line-height:1.72;font-size:16px;overflow-x:hidden;}
-body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");pointer-events:none;z-index:999;}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Analisa a Conversa — Descubra o que está acontecendo no seu relacionamento</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap"
+    rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-/* BARRA TOPO */
-.topo{background:var(--rose-d);color:#fff;text-align:center;padding:11px 20px;font-size:13px;letter-spacing:.2px;}
+    :root {
+      --rose: #b85460;
+      --rose-l: #f7eaec;
+      --rose-d: #7a2d39;
+      --creme: #fdf9f5;
+      --creme-e: #f4ede4;
+      --texto: #160e14;
+      --texto-s: #6a4a54;
+      --texto-m: #a07888;
+      --borda: #e6d4d8;
+      --branco: #ffffff;
+      --preto: #0e090d;
+    }
 
-/* NAV */
-nav{background:var(--branco);border-bottom:1px solid var(--borda);padding:15px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;backdrop-filter:blur(8px);}
-.logo{font-family:'Playfair Display',serif;font-size:19px;color:var(--rose-d);font-style:italic;}
-.nav-btn{background:var(--rose);color:#fff;padding:10px 22px;border-radius:100px;font-size:14px;font-weight:500;text-decoration:none;transition:background .2s;}
-.nav-btn:hover{background:var(--rose-d);}
+    html {
+      scroll-behavior: smooth;
+    }
 
-/* HERO */
-.hero{padding:90px 24px 70px;position:relative;overflow:hidden;}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 90% 70% at 65% 35%,rgba(184,84,96,.07),transparent 65%),radial-gradient(ellipse 50% 50% at 15% 85%,rgba(184,84,96,.04),transparent 55%);}
-.hero-inner{max-width:700px;margin:0 auto;text-align:center;position:relative;animation:rise .9s cubic-bezier(.22,.68,0,1.2) both;}
-@keyframes rise{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:translateY(0);}}
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--creme);
+      color: var(--texto);
+      line-height: 1.72;
+      font-size: 16px;
+      overflow-x: hidden;
+    }
 
-.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--rose-l);color:var(--rose-d);font-size:12.5px;font-weight:500;padding:7px 16px;border-radius:100px;margin-bottom:30px;border:1px solid rgba(184,84,96,.25);}
-.hero-badge span{width:7px;height:7px;background:var(--rose);border-radius:50%;animation:blink 2.2s infinite;}
-@keyframes blink{0%,100%{opacity:1;}50%{opacity:.2;}}
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 999;
+    }
 
-.hero h1{font-family:'Playfair Display',serif;font-size:clamp(34px,7vw,60px);font-weight:700;line-height:1.1;letter-spacing:-.025em;margin-bottom:24px;color:var(--texto);}
-.hero h1 em{font-style:italic;color:var(--rose);}
+    /* BARRA TOPO */
+    .topo {
+      background: var(--rose-d);
+      color: #fff;
+      text-align: center;
+      padding: 11px 20px;
+      font-size: 13px;
+      letter-spacing: .2px;
+    }
 
-.hero-sub{font-size:clamp(16px,2.5vw,20px);color:var(--texto-s);max-width:580px;margin:0 auto 40px;line-height:1.65;}
-.hero-sub strong{color:var(--texto);font-weight:500;}
+    /* NAV */
+    nav {
+      background: var(--branco);
+      border-bottom: 1px solid var(--borda);
+      padding: 15px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(8px);
+    }
 
-.btn{display:inline-flex;align-items:center;gap:9px;background:var(--rose);color:#fff;padding:18px 38px;border-radius:100px;font-size:16px;font-weight:500;text-decoration:none;letter-spacing:.15px;transition:all .25s;box-shadow:0 8px 36px rgba(184,84,96,.32);}
-.btn:hover{background:var(--rose-d);transform:translateY(-2px);box-shadow:0 14px 44px rgba(184,84,96,.4);}
-.btn svg{width:17px;height:17px;flex-shrink:0;}
-.btn-outline{background:transparent;border:1.5px solid var(--rose);color:var(--rose);box-shadow:none;}
-.btn-outline:hover{background:var(--rose);color:#fff;}
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 19px;
+      color: var(--rose-d);
+      font-style: italic;
+    }
 
-.hero-micro{margin-top:18px;font-size:13px;color:var(--texto-m);}
-.hero-micro span{margin:0 7px;}
+    .nav-btn {
+      background: var(--rose);
+      color: #fff;
+      padding: 10px 22px;
+      border-radius: 100px;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background .2s;
+    }
 
-/* DIVISOR */
-.div-linha{height:1px;background:linear-gradient(to right,transparent,var(--borda),transparent);margin:0 auto;max-width:520px;}
+    .nav-btn:hover {
+      background: var(--rose-d);
+    }
 
-/* ABERTURA — DOR */
-.abertura{padding:80px 24px;max-width:680px;margin:0 auto;}
-.abertura h2{font-family:'Playfair Display',serif;font-size:clamp(26px,5vw,40px);font-weight:700;margin-bottom:28px;color:var(--texto);line-height:1.2;}
-.abertura p{font-size:17px;color:var(--texto-s);margin-bottom:20px;line-height:1.75;}
-.abertura p strong{color:var(--texto);font-weight:500;}
+    /* HERO */
+    .hero {
+      padding: 90px 24px 70px;
+      position: relative;
+      overflow: hidden;
+    }
 
-.lista-dor{list-style:none;margin:24px 0;display:flex;flex-direction:column;gap:13px;}
-.lista-dor li{display:flex;align-items:flex-start;gap:12px;font-size:16px;color:var(--texto-s);line-height:1.6;}
-.lista-dor li::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--rose);flex-shrink:0;margin-top:9px;}
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 90% 70% at 65% 35%, rgba(184, 84, 96, .07), transparent 65%), radial-gradient(ellipse 50% 50% at 15% 85%, rgba(184, 84, 96, .04), transparent 55%);
+    }
 
-.frase-ancora{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(18px,3vw,24px);color:var(--texto);border-left:3px solid var(--rose);padding:16px 22px;margin:32px 0;line-height:1.5;background:var(--rose-l);border-radius:0 10px 10px 0;}
+    .hero-inner {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      animation: rise .9s cubic-bezier(.22, .68, 0, 1.2) both;
+    }
 
-/* QUEBRA */
-.quebra{background:var(--texto);padding:80px 24px;position:relative;overflow:hidden;}
-.quebra::before{content:'';position:absolute;right:-80px;top:-80px;width:360px;height:360px;background:radial-gradient(circle,rgba(184,84,96,.15),transparent 70%);border-radius:50%;}
-.quebra-inner{max-width:660px;margin:0 auto;position:relative;}
-.quebra h2{font-family:'Playfair Display',serif;font-size:clamp(24px,4.5vw,38px);font-weight:700;color:#fff;margin-bottom:24px;line-height:1.25;}
-.quebra p{font-size:17px;color:rgba(255,255,255,.75);margin-bottom:20px;line-height:1.72;}
-.lista-confusao{list-style:none;margin:20px 0 28px;display:flex;flex-direction:column;gap:14px;}
-.lista-confusao li{font-size:16px;color:rgba(255,255,255,.8);display:flex;align-items:flex-start;gap:12px;line-height:1.6;}
-.lista-confusao li::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--rose);flex-shrink:0;margin-top:9px;}
-.quebra .frase-imp{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(18px,3vw,26px);color:#fff;text-align:center;margin-top:36px;padding-top:32px;border-top:1px solid rgba(255,255,255,.12);line-height:1.45;}
+    @keyframes rise {
+      from {
+        opacity: 0;
+        transform: translateY(28px);
+      }
 
-/* SOLUÇÃO */
-.solucao{padding:80px 24px;max-width:680px;margin:0 auto;}
-.label-secao{font-size:11.5px;font-weight:600;color:var(--rose);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px;display:block;}
-.solucao h2{font-family:'Playfair Display',serif;font-size:clamp(26px,5vw,40px);font-weight:700;margin-bottom:24px;line-height:1.2;color:var(--texto);}
-.solucao p{font-size:17px;color:var(--texto-s);margin-bottom:18px;line-height:1.72;}
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-/* REVELAÇÕES */
-.rev-section{background:var(--creme-e);padding:80px 24px;}
-.rev-inner{max-width:820px;margin:0 auto;}
-.rev-inner h2{font-family:'Playfair Display',serif;font-size:clamp(26px,5vw,38px);font-weight:700;margin-bottom:8px;color:var(--texto);}
-.rev-inner .sub{font-size:17px;color:var(--texto-s);margin-bottom:48px;}
-.rev-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;}
-.rev-card{background:var(--branco);border-radius:18px;padding:26px;border:1px solid var(--borda);transition:box-shadow .2s;}
-.rev-card:hover{box-shadow:0 10px 40px rgba(120,40,60,.09);}
-.rev-card .rev-tag{font-size:11px;font-weight:600;color:var(--rose);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;display:block;}
-.rev-card h3{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;margin-bottom:12px;color:var(--texto);}
-.rev-card ul{list-style:none;display:flex;flex-direction:column;gap:9px;}
-.rev-card ul li{font-size:14.5px;color:var(--texto-s);display:flex;align-items:flex-start;gap:10px;line-height:1.55;}
-.rev-card ul li::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--rose);flex-shrink:0;margin-top:8px;}
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--rose-l);
+      color: var(--rose-d);
+      font-size: 12.5px;
+      font-weight: 500;
+      padding: 7px 16px;
+      border-radius: 100px;
+      margin-bottom: 30px;
+      border: 1px solid rgba(184, 84, 96, .25);
+    }
 
-/* ALERTA */
-.alerta{padding:80px 24px;max-width:680px;margin:0 auto;}
-.alerta-box{background:var(--rose-l);border:1px solid rgba(184,84,96,.25);border-radius:18px;padding:36px;position:relative;overflow:hidden;}
-.alerta-box::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;background:radial-gradient(circle,rgba(184,84,96,.08),transparent 70%);border-radius:50%;}
-.alerta h3{font-family:'Playfair Display',serif;font-size:clamp(22px,4vw,30px);font-weight:700;color:var(--rose-d);margin-bottom:20px;line-height:1.3;}
-.alerta p{font-size:16px;color:var(--texto-s);margin-bottom:16px;line-height:1.7;}
-.alerta ul{list-style:none;display:flex;flex-direction:column;gap:11px;margin:20px 0;}
-.alerta ul li{font-size:15.5px;color:var(--texto-s);display:flex;align-items:flex-start;gap:12px;line-height:1.6;}
-.alerta ul li::before{content:'⚠';font-size:13px;flex-shrink:0;margin-top:2px;}
-.alerta .nota{font-size:14px;color:var(--texto-m);font-style:italic;margin-top:16px;}
+    .hero-badge span {
+      width: 7px;
+      height: 7px;
+      background: var(--rose);
+      border-radius: 50%;
+      animation: blink 2.2s infinite;
+    }
 
-/* FUTURO */
-.futuro{background:var(--texto);padding:80px 24px;}
-.futuro-inner{max-width:660px;margin:0 auto;text-align:center;}
-.futuro h2{font-family:'Playfair Display',serif;font-size:clamp(24px,4.5vw,36px);font-weight:700;color:#fff;margin-bottom:16px;line-height:1.25;}
-.futuro p{font-size:17px;color:rgba(255,255,255,.72);margin-bottom:0;line-height:1.7;}
-.futuro .grid-futuro{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:44px;}
-.futuro-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:24px 20px;text-align:left;}
-.futuro-card .ft-label{font-size:11px;font-weight:600;color:rgba(184,84,96,.9);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;display:block;}
-.futuro-card p{font-size:14.5px;color:rgba(255,255,255,.78);line-height:1.6;margin:0;}
+    @keyframes blink {
 
-/* DIFERENCIAL */
-.dif{padding:80px 24px;max-width:680px;margin:0 auto;text-align:center;}
-.dif h2{font-family:'Playfair Display',serif;font-size:clamp(24px,4.5vw,36px);font-weight:700;color:var(--texto);margin-bottom:16px;}
-.dif p{font-size:17px;color:var(--texto-s);margin-bottom:0;max-width:540px;margin:0 auto 40px;}
-.dif-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;text-align:left;}
-.dif-nao{background:#fff5f5;border:1px solid #f0c0c5;border-radius:14px;padding:20px;}
-.dif-nao .dt{font-size:12px;font-weight:600;color:#a03040;text-transform:uppercase;letter-spacing:.8px;margin-bottom:10px;}
-.dif-nao li,.dif-sim li{font-size:14.5px;line-height:1.55;margin-bottom:8px;list-style:none;display:flex;gap:8px;align-items:flex-start;}
-.dif-nao li::before{content:'✕';color:#c04050;font-size:13px;flex-shrink:0;}
-.dif-sim{background:#f0faf4;border:1px solid #a8ddb8;border-radius:14px;padding:20px;}
-.dif-sim .dt{font-size:12px;font-weight:600;color:#1a7040;text-transform:uppercase;letter-spacing:.8px;margin-bottom:10px;}
-.dif-sim li::before{content:'✓';color:#1a7040;font-size:13px;flex-shrink:0;}
+      0%,
+      100% {
+        opacity: 1;
+      }
 
-/* FRASES ADS */
-.frases{background:var(--creme-e);padding:70px 24px;}
-.frases-inner{max-width:680px;margin:0 auto;}
-.frases-inner .label-secao{text-align:center;display:block;}
-.frases-inner h2{font-family:'Playfair Display',serif;font-size:clamp(22px,4vw,32px);font-weight:700;text-align:center;margin-bottom:36px;color:var(--texto);}
-.frases-grid{display:flex;flex-direction:column;gap:14px;}
-.frase-card{background:var(--branco);border:1px solid var(--borda);border-radius:12px;padding:20px 22px;border-left:3px solid var(--rose);font-family:'Playfair Display',serif;font-style:italic;font-size:17px;color:var(--texto-s);line-height:1.55;}
+      50% {
+        opacity: .2;
+      }
+    }
 
-/* DEPOIMENTOS */
-.dep{padding:80px 24px;max-width:820px;margin:0 auto;}
-.dep h2{font-family:'Playfair Display',serif;font-size:clamp(24px,4.5vw,36px);font-weight:700;text-align:center;margin-bottom:44px;color:var(--texto);}
-.dep-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;}
-.dep-card{background:var(--branco);border-radius:18px;padding:26px;border:1px solid var(--borda);}
-.estrelas{color:#e8a030;font-size:14px;letter-spacing:2px;margin-bottom:14px;}
-.dep-texto{font-family:'Playfair Display',serif;font-style:italic;font-size:15.5px;color:var(--texto-s);line-height:1.65;margin-bottom:18px;}
-.dep-autor{display:flex;align-items:center;gap:10px;}
-.dep-ini{width:36px;height:36px;border-radius:50%;background:var(--rose-l);color:var(--rose-d);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;}
-.dep-nome{font-size:14px;font-weight:500;color:var(--texto);}
-.dep-city{font-size:12px;color:var(--texto-m);}
-.dep-aviso{font-size:12.5px;color:var(--texto-m);text-align:center;margin-top:18px;font-style:italic;}
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(34px, 7vw, 60px);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -.025em;
+      margin-bottom: 24px;
+      color: var(--texto);
+    }
 
-/* OFERTA */
-.oferta{background:var(--preto);padding:90px 24px;position:relative;overflow:hidden;}
-.oferta::before{content:'';position:absolute;left:-100px;bottom:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(184,84,96,.1),transparent 65%);border-radius:50%;}
-.oferta::after{content:'';position:absolute;right:-80px;top:-80px;width:360px;height:360px;background:radial-gradient(circle,rgba(184,84,96,.07),transparent 65%);border-radius:50%;}
-.oferta-inner{max-width:580px;margin:0 auto;text-align:center;position:relative;}
-.oferta-badge{display:inline-block;background:rgba(184,84,96,.2);color:#e8a0a8;font-size:12px;font-weight:600;padding:6px 18px;border-radius:100px;margin-bottom:24px;letter-spacing:.5px;text-transform:uppercase;}
-.oferta h2{font-family:'Playfair Display',serif;font-size:clamp(28px,5.5vw,46px);font-weight:700;color:#fff;margin-bottom:16px;line-height:1.2;}
-.oferta h2 em{font-style:italic;color:#e8a0b8;}
-.oferta > .oferta-inner > p{font-size:17px;color:rgba(255,255,255,.65);margin-bottom:40px;line-height:1.7;}
+    .hero h1 em {
+      font-style: italic;
+      color: var(--rose);
+    }
 
-.preco-box{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:22px;padding:38px 28px;margin-bottom:28px;}
-.preco-de{font-size:15px;color:rgba(255,255,255,.35);text-decoration:line-through;margin-bottom:4px;}
-.preco-label{font-size:13px;color:rgba(255,255,255,.55);margin-bottom:6px;}
-.preco-valor{display:flex;align-items:baseline;justify-content:center;gap:4px;margin-bottom:10px;}
-.preco-rs{font-family:'Playfair Display',serif;font-size:28px;color:#fff;font-weight:700;}
-.preco-num{font-family:'Playfair Display',serif;font-size:clamp(56px,12vw,80px);color:#fff;font-weight:700;line-height:1;}
-.preco-cents{font-family:'Playfair Display',serif;font-size:26px;color:rgba(255,255,255,.8);font-weight:700;align-self:flex-start;margin-top:8px;}
-.preco-pix{font-size:13.5px;color:rgba(255,255,255,.45);margin-bottom:28px;}
+    .hero-sub {
+      font-size: clamp(16px, 2.5vw, 20px);
+      color: var(--texto-s);
+      max-width: 580px;
+      margin: 0 auto 40px;
+      line-height: 1.65;
+    }
 
-.inclui{text-align:left;border-top:1px solid rgba(255,255,255,.08);padding-top:24px;}
-.inclui-item{display:flex;align-items:flex-start;gap:12px;padding:10px 0;font-size:15px;color:rgba(255,255,255,.82);line-height:1.5;}
-.inclui-check{width:20px;height:20px;border-radius:50%;background:rgba(184,84,96,.25);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
-.inclui-check svg{width:11px;height:11px;}
+    .hero-sub strong {
+      color: var(--texto);
+      font-weight: 500;
+    }
 
-.btn-oferta{display:block;background:var(--rose);color:#fff;padding:20px 36px;border-radius:100px;font-size:17px;font-weight:500;text-decoration:none;text-align:center;margin-top:28px;margin-bottom:14px;transition:all .25s;box-shadow:0 8px 44px rgba(184,84,96,.4);}
-.btn-oferta:hover{background:var(--rose-d);transform:translateY(-2px);}
-.oferta-seguro{font-size:13px;color:rgba(255,255,255,.38);}
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: var(--rose);
+      color: #fff;
+      padding: 18px 38px;
+      border-radius: 100px;
+      font-size: 16px;
+      font-weight: 500;
+      text-decoration: none;
+      letter-spacing: .15px;
+      transition: all .25s;
+      box-shadow: 0 8px 36px rgba(184, 84, 96, .32);
+    }
 
-/* GARANTIA */
-.garantia{padding:64px 24px;background:var(--creme-e);}
-.garantia-inner{max-width:560px;margin:0 auto;text-align:center;}
-.garantia-inner h3{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--texto);margin-bottom:14px;}
-.garantia-inner p{font-size:16px;color:var(--texto-s);line-height:1.7;}
+    .btn:hover {
+      background: var(--rose-d);
+      transform: translateY(-2px);
+      box-shadow: 0 14px 44px rgba(184, 84, 96, .4);
+    }
 
-/* FAQ */
-.faq{padding:80px 24px;max-width:620px;margin:0 auto;}
-.faq h2{font-family:'Playfair Display',serif;font-size:clamp(24px,4vw,34px);font-weight:700;text-align:center;margin-bottom:40px;color:var(--texto);}
-.faq-item{border-bottom:1px solid var(--borda);}
-.faq-btn{width:100%;text-align:left;background:none;border:none;padding:20px 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;color:var(--texto);gap:12px;}
-.faq-btn:hover{color:var(--rose);}
-.faq-ic{font-size:22px;color:var(--rose);transition:transform .2s;flex-shrink:0;}
-.faq-item.open .faq-ic{transform:rotate(45deg);}
-.faq-body{display:none;padding-bottom:18px;font-size:15.5px;color:var(--texto-s);line-height:1.7;}
-.faq-item.open .faq-body{display:block;}
+    .btn svg {
+      width: 17px;
+      height: 17px;
+      flex-shrink: 0;
+    }
 
-/* FECHAMENTO */
-.fechamento{padding:90px 24px;text-align:center;}
-.fechamento h2{font-family:'Playfair Display',serif;font-size:clamp(28px,5.5vw,46px);font-weight:700;color:var(--texto);margin-bottom:18px;line-height:1.2;}
-.fechamento h2 em{font-style:italic;color:var(--rose);}
-.fechamento p{font-size:17px;color:var(--texto-s);max-width:500px;margin:0 auto 36px;line-height:1.7;}
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid var(--rose);
+      color: var(--rose);
+      box-shadow: none;
+    }
 
-/* RODAPÉ */
-footer{background:var(--texto);padding:32px 24px;text-align:center;}
-footer p{font-size:13px;color:rgba(255,255,255,.35);}
-footer a{color:rgba(255,255,255,.35);text-decoration:none;}
+    .btn-outline:hover {
+      background: var(--rose);
+      color: #fff;
+    }
 
-/* MOBILE */
-@media(max-width:600px){
-  .hero{padding:60px 20px 52px;}
-  .preco-num{font-size:64px;}
-}
-</style>
+    .hero-micro {
+      margin-top: 18px;
+      font-size: 13px;
+      color: var(--texto-m);
+    }
+
+    .hero-micro span {
+      margin: 0 7px;
+    }
+
+    /* DIVISOR */
+    .div-linha {
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--borda), transparent);
+      margin: 0 auto;
+      max-width: 520px;
+    }
+
+    /* ABERTURA — DOR */
+    .abertura {
+      padding: 80px 24px;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .abertura h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 5vw, 40px);
+      font-weight: 700;
+      margin-bottom: 28px;
+      color: var(--texto);
+      line-height: 1.2;
+    }
+
+    .abertura p {
+      font-size: 17px;
+      color: var(--texto-s);
+      margin-bottom: 20px;
+      line-height: 1.75;
+    }
+
+    .abertura p strong {
+      color: var(--texto);
+      font-weight: 500;
+    }
+
+    .lista-dor {
+      list-style: none;
+      margin: 24px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 13px;
+    }
+
+    .lista-dor li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 16px;
+      color: var(--texto-s);
+      line-height: 1.6;
+    }
+
+    .lista-dor li::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--rose);
+      flex-shrink: 0;
+      margin-top: 9px;
+    }
+
+    .frase-ancora {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(18px, 3vw, 24px);
+      color: var(--texto);
+      border-left: 3px solid var(--rose);
+      padding: 16px 22px;
+      margin: 32px 0;
+      line-height: 1.5;
+      background: var(--rose-l);
+      border-radius: 0 10px 10px 0;
+    }
+
+    /* QUEBRA */
+    .quebra {
+      background: var(--texto);
+      padding: 80px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .quebra::before {
+      content: '';
+      position: absolute;
+      right: -80px;
+      top: -80px;
+      width: 360px;
+      height: 360px;
+      background: radial-gradient(circle, rgba(184, 84, 96, .15), transparent 70%);
+      border-radius: 50%;
+    }
+
+    .quebra-inner {
+      max-width: 660px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .quebra h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(24px, 4.5vw, 38px);
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 24px;
+      line-height: 1.25;
+    }
+
+    .quebra p {
+      font-size: 17px;
+      color: rgba(255, 255, 255, .75);
+      margin-bottom: 20px;
+      line-height: 1.72;
+    }
+
+    .lista-confusao {
+      list-style: none;
+      margin: 20px 0 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .lista-confusao li {
+      font-size: 16px;
+      color: rgba(255, 255, 255, .8);
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      line-height: 1.6;
+    }
+
+    .lista-confusao li::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--rose);
+      flex-shrink: 0;
+      margin-top: 9px;
+    }
+
+    .quebra .frase-imp {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(18px, 3vw, 26px);
+      color: #fff;
+      text-align: center;
+      margin-top: 36px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255, 255, 255, .12);
+      line-height: 1.45;
+    }
+
+    /* SOLUÇÃO */
+    .solucao {
+      padding: 80px 24px;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .label-secao {
+      font-size: 11.5px;
+      font-weight: 600;
+      color: var(--rose);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .solucao h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 5vw, 40px);
+      font-weight: 700;
+      margin-bottom: 24px;
+      line-height: 1.2;
+      color: var(--texto);
+    }
+
+    .solucao p {
+      font-size: 17px;
+      color: var(--texto-s);
+      margin-bottom: 18px;
+      line-height: 1.72;
+    }
+
+    /* REVELAÇÕES */
+    .rev-section {
+      background: var(--creme-e);
+      padding: 80px 24px;
+    }
+
+    .rev-inner {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .rev-inner h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 5vw, 38px);
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--texto);
+    }
+
+    .rev-inner .sub {
+      font-size: 17px;
+      color: var(--texto-s);
+      margin-bottom: 48px;
+    }
+
+    .rev-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .rev-card {
+      background: var(--branco);
+      border-radius: 18px;
+      padding: 26px;
+      border: 1px solid var(--borda);
+      transition: box-shadow .2s;
+    }
+
+    .rev-card:hover {
+      box-shadow: 0 10px 40px rgba(120, 40, 60, .09);
+    }
+
+    .rev-card .rev-tag {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--rose);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .rev-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--texto);
+    }
+
+    .rev-card ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .rev-card ul li {
+      font-size: 14.5px;
+      color: var(--texto-s);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      line-height: 1.55;
+    }
+
+    .rev-card ul li::before {
+      content: '';
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--rose);
+      flex-shrink: 0;
+      margin-top: 8px;
+    }
+
+    /* ALERTA */
+    .alerta {
+      padding: 80px 24px;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .alerta-box {
+      background: var(--rose-l);
+      border: 1px solid rgba(184, 84, 96, .25);
+      border-radius: 18px;
+      padding: 36px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .alerta-box::before {
+      content: '';
+      position: absolute;
+      top: -40px;
+      right: -40px;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(184, 84, 96, .08), transparent 70%);
+      border-radius: 50%;
+    }
+
+    .alerta h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(22px, 4vw, 30px);
+      font-weight: 700;
+      color: var(--rose-d);
+      margin-bottom: 20px;
+      line-height: 1.3;
+    }
+
+    .alerta p {
+      font-size: 16px;
+      color: var(--texto-s);
+      margin-bottom: 16px;
+      line-height: 1.7;
+    }
+
+    .alerta ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+      margin: 20px 0;
+    }
+
+    .alerta ul li {
+      font-size: 15.5px;
+      color: var(--texto-s);
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      line-height: 1.6;
+    }
+
+    .alerta ul li::before {
+      content: '⚠';
+      font-size: 13px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .alerta .nota {
+      font-size: 14px;
+      color: var(--texto-m);
+      font-style: italic;
+      margin-top: 16px;
+    }
+
+    /* FUTURO */
+    .futuro {
+      background: var(--texto);
+      padding: 80px 24px;
+    }
+
+    .futuro-inner {
+      max-width: 660px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .futuro h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(24px, 4.5vw, 36px);
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 16px;
+      line-height: 1.25;
+    }
+
+    .futuro p {
+      font-size: 17px;
+      color: rgba(255, 255, 255, .72);
+      margin-bottom: 0;
+      line-height: 1.7;
+    }
+
+    .futuro .grid-futuro {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-top: 44px;
+    }
+
+    .futuro-card {
+      background: rgba(255, 255, 255, .06);
+      border: 1px solid rgba(255, 255, 255, .1);
+      border-radius: 14px;
+      padding: 24px 20px;
+      text-align: left;
+    }
+
+    .futuro-card .ft-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: rgba(184, 84, 96, .9);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .futuro-card p {
+      font-size: 14.5px;
+      color: rgba(255, 255, 255, .78);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* DIFERENCIAL */
+    .dif {
+      padding: 80px 24px;
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .dif h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(24px, 4.5vw, 36px);
+      font-weight: 700;
+      color: var(--texto);
+      margin-bottom: 16px;
+    }
+
+    .dif p {
+      font-size: 17px;
+      color: var(--texto-s);
+      margin-bottom: 0;
+      max-width: 540px;
+      margin: 0 auto 40px;
+    }
+
+    .dif-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 14px;
+      text-align: left;
+    }
+
+    .dif-nao {
+      background: #fff5f5;
+      border: 1px solid #f0c0c5;
+      border-radius: 14px;
+      padding: 20px;
+    }
+
+    .dif-nao .dt {
+      font-size: 12px;
+      font-weight: 600;
+      color: #a03040;
+      text-transform: uppercase;
+      letter-spacing: .8px;
+      margin-bottom: 10px;
+    }
+
+    .dif-nao li,
+    .dif-sim li {
+      font-size: 14.5px;
+      line-height: 1.55;
+      margin-bottom: 8px;
+      list-style: none;
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .dif-nao li::before {
+      content: '✕';
+      color: #c04050;
+      font-size: 13px;
+      flex-shrink: 0;
+    }
+
+    .dif-sim {
+      background: #f0faf4;
+      border: 1px solid #a8ddb8;
+      border-radius: 14px;
+      padding: 20px;
+    }
+
+    .dif-sim .dt {
+      font-size: 12px;
+      font-weight: 600;
+      color: #1a7040;
+      text-transform: uppercase;
+      letter-spacing: .8px;
+      margin-bottom: 10px;
+    }
+
+    .dif-sim li::before {
+      content: '✓';
+      color: #1a7040;
+      font-size: 13px;
+      flex-shrink: 0;
+    }
+
+    /* FRASES ADS */
+    .frases {
+      background: var(--creme-e);
+      padding: 70px 24px;
+    }
+
+    .frases-inner {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .frases-inner .label-secao {
+      text-align: center;
+      display: block;
+    }
+
+    .frases-inner h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(22px, 4vw, 32px);
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 36px;
+      color: var(--texto);
+    }
+
+    .frases-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .frase-card {
+      background: var(--branco);
+      border: 1px solid var(--borda);
+      border-radius: 12px;
+      padding: 20px 22px;
+      border-left: 3px solid var(--rose);
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 17px;
+      color: var(--texto-s);
+      line-height: 1.55;
+    }
+
+    /* DEPOIMENTOS */
+    .dep {
+      padding: 80px 24px;
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .dep h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(24px, 4.5vw, 36px);
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 44px;
+      color: var(--texto);
+    }
+
+    .dep-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .dep-card {
+      background: var(--branco);
+      border-radius: 18px;
+      padding: 26px;
+      border: 1px solid var(--borda);
+    }
+
+    .estrelas {
+      color: #e8a030;
+      font-size: 14px;
+      letter-spacing: 2px;
+      margin-bottom: 14px;
+    }
+
+    .dep-texto {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 15.5px;
+      color: var(--texto-s);
+      line-height: 1.65;
+      margin-bottom: 18px;
+    }
+
+    .dep-autor {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .dep-ini {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--rose-l);
+      color: var(--rose-d);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    .dep-nome {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--texto);
+    }
+
+    .dep-city {
+      font-size: 12px;
+      color: var(--texto-m);
+    }
+
+    .dep-aviso {
+      font-size: 12.5px;
+      color: var(--texto-m);
+      text-align: center;
+      margin-top: 18px;
+      font-style: italic;
+    }
+
+    /* OFERTA */
+    .oferta {
+      background: var(--preto);
+      padding: 90px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .oferta::before {
+      content: '';
+      position: absolute;
+      left: -100px;
+      bottom: -100px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(184, 84, 96, .1), transparent 65%);
+      border-radius: 50%;
+    }
+
+    .oferta::after {
+      content: '';
+      position: absolute;
+      right: -80px;
+      top: -80px;
+      width: 360px;
+      height: 360px;
+      background: radial-gradient(circle, rgba(184, 84, 96, .07), transparent 65%);
+      border-radius: 50%;
+    }
+
+    .oferta-inner {
+      max-width: 580px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+    }
+
+    .oferta-badge {
+      display: inline-block;
+      background: rgba(184, 84, 96, .2);
+      color: #e8a0a8;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 18px;
+      border-radius: 100px;
+      margin-bottom: 24px;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+    }
+
+    .oferta h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 5.5vw, 46px);
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .oferta h2 em {
+      font-style: italic;
+      color: #e8a0b8;
+    }
+
+    .oferta>.oferta-inner>p {
+      font-size: 17px;
+      color: rgba(255, 255, 255, .65);
+      margin-bottom: 40px;
+      line-height: 1.7;
+    }
+
+    .preco-box {
+      background: rgba(255, 255, 255, .05);
+      border: 1px solid rgba(255, 255, 255, .1);
+      border-radius: 22px;
+      padding: 38px 28px;
+      margin-bottom: 28px;
+    }
+
+    .preco-de {
+      font-size: 15px;
+      color: rgba(255, 255, 255, .35);
+      text-decoration: line-through;
+      margin-bottom: 4px;
+    }
+
+    .preco-label {
+      font-size: 13px;
+      color: rgba(255, 255, 255, .55);
+      margin-bottom: 6px;
+    }
+
+    .preco-valor {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 4px;
+      margin-bottom: 10px;
+    }
+
+    .preco-rs {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .preco-num {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(56px, 12vw, 80px);
+      color: #fff;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .preco-cents {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      color: rgba(255, 255, 255, .8);
+      font-weight: 700;
+      align-self: flex-start;
+      margin-top: 8px;
+    }
+
+    .preco-pix {
+      font-size: 13.5px;
+      color: rgba(255, 255, 255, .45);
+      margin-bottom: 28px;
+    }
+
+    .inclui {
+      text-align: left;
+      border-top: 1px solid rgba(255, 255, 255, .08);
+      padding-top: 24px;
+    }
+
+    .inclui-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 0;
+      font-size: 15px;
+      color: rgba(255, 255, 255, .82);
+      line-height: 1.5;
+    }
+
+    .inclui-check {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: rgba(184, 84, 96, .25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .inclui-check svg {
+      width: 11px;
+      height: 11px;
+    }
+
+    .btn-oferta {
+      display: block;
+      background: var(--rose);
+      color: #fff;
+      padding: 20px 36px;
+      border-radius: 100px;
+      font-size: 17px;
+      font-weight: 500;
+      text-decoration: none;
+      text-align: center;
+      margin-top: 28px;
+      margin-bottom: 14px;
+      transition: all .25s;
+      box-shadow: 0 8px 44px rgba(184, 84, 96, .4);
+    }
+
+    .btn-oferta:hover {
+      background: var(--rose-d);
+      transform: translateY(-2px);
+    }
+
+    .oferta-seguro {
+      font-size: 13px;
+      color: rgba(255, 255, 255, .38);
+    }
+
+    /* GARANTIA */
+    .garantia {
+      padding: 64px 24px;
+      background: var(--creme-e);
+    }
+
+    .garantia-inner {
+      max-width: 560px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .garantia-inner h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--texto);
+      margin-bottom: 14px;
+    }
+
+    .garantia-inner p {
+      font-size: 16px;
+      color: var(--texto-s);
+      line-height: 1.7;
+    }
+
+    /* FAQ */
+    .faq {
+      padding: 80px 24px;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    .faq h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(24px, 4vw, 34px);
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 40px;
+      color: var(--texto);
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--borda);
+    }
+
+    .faq-btn {
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: none;
+      padding: 20px 0;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--texto);
+      gap: 12px;
+    }
+
+    .faq-btn:hover {
+      color: var(--rose);
+    }
+
+    .faq-ic {
+      font-size: 22px;
+      color: var(--rose);
+      transition: transform .2s;
+      flex-shrink: 0;
+    }
+
+    .faq-item.open .faq-ic {
+      transform: rotate(45deg);
+    }
+
+    .faq-body {
+      display: none;
+      padding-bottom: 18px;
+      font-size: 15.5px;
+      color: var(--texto-s);
+      line-height: 1.7;
+    }
+
+    .faq-item.open .faq-body {
+      display: block;
+    }
+
+    /* FECHAMENTO */
+    .fechamento {
+      padding: 90px 24px;
+      text-align: center;
+    }
+
+    .fechamento h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 5.5vw, 46px);
+      font-weight: 700;
+      color: var(--texto);
+      margin-bottom: 18px;
+      line-height: 1.2;
+    }
+
+    .fechamento h2 em {
+      font-style: italic;
+      color: var(--rose);
+    }
+
+    .fechamento p {
+      font-size: 17px;
+      color: var(--texto-s);
+      max-width: 500px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+
+    /* RODAPÉ */
+    footer {
+      background: var(--texto);
+      padding: 32px 24px;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 13px;
+      color: rgba(255, 255, 255, .35);
+    }
+
+    footer a {
+      color: rgba(255, 255, 255, .35);
+      text-decoration: none;
+    }
+
+    /* MOBILE */
+    @media(max-width:600px) {
+      .hero {
+        padding: 60px 20px 52px;
+      }
+
+      .preco-num {
+        font-size: 64px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<!-- TOPO -->
-<div class="topo">Oferta de lançamento — acesso imediato por R$ 17,90</div>
+  <!-- TOPO -->
+  <div class="topo">Oferta de lançamento — acesso imediato por R$ 17,90</div>
 
-<!-- NAV -->
-<nav>
-  <div class="logo">Analisa a Conversa</div>
-  <a href="#oferta" class="nav-btn">Quero entender</a>
-</nav>
+  <!-- NAV -->
+  <nav>
+    <div class="logo">Analisa a Conversa</div>
+    <a href="#oferta" class="nav-btn">Quero entender</a>
+  </nav>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-inner">
-    <div class="hero-badge">
-      <span></span>
-      Baseado em psicologia de casal e TCC
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-badge">
+        <span></span>
+        A Lara já realizou a análise de mais de 320 casais
+      </div>
+
+      <h1>
+        Descubra o que está<br>
+        <em>realmente acontecendo</em><br>
+        no seu relacionamento.
+      </h1>
+
+      <p class="hero-sub">
+        Como você está sendo tratada. Se é amor ou apego.
+        Se a relação é saudável ou desgastante.
+        E se nada mudar — <strong>onde isso vai chegar.</strong>
+      </p>
+
+      <a href="#oferta" class="btn">
+        Quero entender o que está acontecendo
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5 12h14" />
+          <path d="m12 5 7 7-7 7" />
+        </svg>
+      </a>
+      <p class="hero-micro">
+        <span>🔒 100% privado</span>
+        <span>·</span>
+        <span>Sem julgamentos</span>
+        <span>·</span>
+        <span>Sem te forçar a nenhuma decisão</span>
+      </p>
+    </div>
+  </section>
+
+  <div class="div-linha"></div>
+
+  <!-- ABERTURA — DOR -->
+  <section class="abertura">
+    <h2>Seu relacionamento não era assim no começo.</h2>
+
+    <p>Tinha leveza. Tinha conexão. As coisas eram mais fáceis.</p>
+
+    <p>Mas hoje é diferente.</p>
+
+    <ul class="lista-dor">
+      <li>Vocês brigam pelas mesmas coisas, de novo e de novo</li>
+      <li>Qualquer conversa pode virar discussão sem você entender como chegou lá</li>
+      <li>Você se controla, pisa em ovos, evita certos assuntos</li>
+      <li>Já teve momentos em que preferiu ficar calada pra não piorar</li>
+      <li>Você se machuca… mas releva, engole, segue</li>
+    </ul>
+
+    <p>E em algum momento começou a aparecer uma sensação difícil de nomear.</p>
+
+    <p>Como se você fosse perdendo pedaços de si mesma dentro da relação.</p>
+
+    <div class="frase-ancora">
+      "O que está acontecendo entre a gente?<br>Será que o amor acabou… ou fui eu que mudei?"
     </div>
 
-    <h1>
-      Descubra o que está<br>
-      <em>realmente acontecendo</em><br>
-      no seu relacionamento.
-    </h1>
+    <p>Essa dúvida que não te deixa em paz. Que aparece nas horas mais silenciosas. Que você não sabe bem com quem
+      dividir.</p>
+  </section>
 
-    <p class="hero-sub">
-      Como você está sendo tratada. Se é amor ou apego.
-      Se a relação é saudável ou desgastante.
-      E se nada mudar — <strong>onde isso vai chegar.</strong>
-    </p>
+  <!-- QUEBRA DE ILUSÃO -->
+  <section class="quebra">
+    <div class="quebra-inner">
+      <h2>A maioria das pessoas não sofre porque o relacionamento é ruim.</h2>
 
+      <p>Sofre porque <strong style="color:#fff;">não percebe a diferença</strong>entre o que está vivendo e a
+        verdadeira felicidade:</p>
+
+      <ul class="lista-confusao">
+        <li>Confunde amor com apego — e continua por medo de ficar sozinha</li>
+        <li>Confunde cuidado com controle — e acha que é atenção</li>
+        <li>Confunde silêncio com paz — quando na verdade é distância</li>
+        <li>Confunde rotina com conexão — e deixa de perceber que esfriou</li>
+        <li>Normaliza coisas que antes nunca aceitaria — sem perceber que foi acontecendo devagar</li>
+      </ul>
+
+      <p style="color:rgba(255,255,255,.75);">E , você fica tentando resolver no escuro. Se perguntando. Se culpando.
+        Sem saber se o que sente faz sentido.</p>
+
+      <div class="frase-imp">
+        "Você está pronta para ter consciência do que o seu relacionamento realmente é… e não do que você gostaria que
+        fosse?"
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUÇÃO -->
+  <section class="solucao">
+    <span class="label-secao">A partir daqui, tudo muda</span>
+    <h2>Você não precisa mais<br>viver na dúvida.</h2>
+
+    <p>Essa análise não é sobre uma conversa.</p>
+    <p>É sobre o seu relacionamento como um todo.</p>
+    <p>A partir de uma troca de mensagens real entre vocês, você recebe uma leitura profunda que revela o que está por
+      trás das palavras — a dinâmica real de como vocês funcionam juntos.</p>
+
+    <div class="frase-ancora" style="margin-top:36px;">
+      Não é opinião de amiga.<br>
+      Não é conselho vazio.<br>
+      É clareza. Com cuidado. E sem te forçar a nenhuma decisão.
+    </div>
+  </section>
+
+  <!-- REVELAÇÕES -->
+  <section class="rev-section">
+    <div class="rev-inner">
+      <span class="label-secao">O que você vai descobrir</span>
+      <h2>Uma leitura completa<br>do seu relacionamento.</h2>
+      <p class="sub">Em 6 camadas — do que aparece na superfície ao que está se construindo ao longo do tempo.</p>
+
+      <div class="rev-grid">
+        <div class="rev-card">
+          <span class="rev-tag">Sobre você</span>
+          <h3>O seu papel na relação</h3>
+          <ul>
+            <li>Se você está se doando mais do que recebe</li>
+            <li>Se está se anulando sem perceber</li>
+            <li>Como você reage emocionalmente nos conflitos</li>
+            <li>O quanto você está sustentando a relação sozinha</li>
+          </ul>
+        </div>
+
+        <div class="rev-card">
+          <span class="rev-tag">Sobre o outro</span>
+          <h3>Como ele/ela realmente age</h3>
+          <ul>
+            <li>Se se aproxima ou se afasta emocionalmente</li>
+            <li>Como lida com conflito — e o que isso revela</li>
+            <li>Se existem sinais de crítica, frieza ou controle</li>
+            <li>O que está sendo dito nas entrelinhas</li>
+          </ul>
+        </div>
+
+        <div class="rev-card">
+          <span class="rev-tag">Sobre os dois</span>
+          <h3>A dinâmica de vocês</h3>
+          <ul>
+            <li>Por que as brigas se repetem sempre no mesmo ponto</li>
+            <li>Quem puxa mais a relação — e o que isso gera</li>
+            <li>Se ainda existe conexão real ou só apego e rotina</li>
+            <li>Se há parceria… ou esforço de um lado só</li>
+          </ul>
+        </div>
+
+        <div class="rev-card">
+          <span class="rev-tag">Alertas</span>
+          <h3>O que pode estar passando despercebido</h3>
+          <ul>
+            <li>Comportamentos que podem estar te machucando</li>
+            <li>Padrões que você pode ter normalizado ao longo do tempo</li>
+            <li>Sinais sutis de desvalorização ou desgaste emocional</li>
+          </ul>
+        </div>
+
+        <div class="rev-card">
+          <span class="rev-tag">Futuro</span>
+          <h3>Para onde isso está indo</h3>
+          <ul>
+            <li>Como a relação tende a evoluir se nada mudar</li>
+            <li>O que pode acontecer a longo prazo</li>
+            <li>E o que muda se houver ajustes entre vocês</li>
+          </ul>
+        </div>
+
+        <div class="rev-card">
+          <span class="rev-tag">Caminhos</span>
+          <h3>O que ainda pode melhorar</h3>
+          <ul>
+            <li>Como a comunicação entre vocês pode evoluir</li>
+            <li>O que pode ser ajustado para fortalecer a relação</li>
+            <li>Onde ainda existe espaço para reconexão</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ALERTA EMOCIONAL -->
+  <section class="alerta">
+    <div class="alerta-box">
+      <h3>Algumas coisas que essa análise pode revelar sobre como você está sendo tratada:</h3>
+      <ul>
+        <li>Se você sente que precisa "pisar em ovos" — e o que isso indica</li>
+        <li>Se sua voz está sendo ignorada ou invalidada dentro da relação</li>
+        <li>Se existe falta de reciprocidade — carinho, presença, esforço</li>
+        <li>Se há sinais de manipulação, controle ou desvalorização sutil</li>
+        <li>Se você está se adaptando a coisas que antes nunca aceitaria</li>
+      </ul>
+      <p>Não é pra assustar. É pra iluminar o que às vezes você sente… mas não consegue nomear.</p>
+      <p class="nota">A análise não vai te dizer o que fazer. Ela vai te mostrar o que você precisa enxergar.</p>
+    </div>
+  </section>
+
+  <!-- FUTURO -->
+  <section class="futuro">
+    <div class="futuro-inner">
+      <span class="label-secao"
+        style="color:rgba(184,84,96,.9);display:block;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px;">O
+        que ninguém te conta</span>
+      <h2>O problema não é só o que vocês estão vivendo.</h2>
+      <p>É não conseguir entender o que isso significa — e onde está levando.</p>
+
+      <div class="grid-futuro">
+        <div class="futuro-card">
+          <span class="ft-label">Se nada mudar</span>
+          <p>Você vai entender como essa relação tende a evoluir — e o que pode acontecer a longo prazo se os padrões
+            continuarem.</p>
+        </div>
+        <div class="futuro-card">
+          <span class="ft-label">Se houver ajustes</span>
+          <p>Você vai ver onde ainda existe espaço real de melhora — e o que precisaria mudar para a relação se
+            fortalecer.</p>
+        </div>
+        <div class="futuro-card">
+          <span class="ft-label">Em qualquer caso</span>
+          <p>Você vai sair sabendo o que está acontecendo. Não apenas sentindo. E isso muda tudo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFERENCIAL -->
+  <section class="dif">
+    <span class="label-secao" style="display:block;text-align:center;">O que você recebe</span>
+    <h2>Uma leitura que ninguém<br>ao seu redor consegue te dar.</h2>
+    <p>Não porque não te amam. Porque não enxergam de fora com clareza.</p>
+
+    <div class="dif-grid">
+      <div class="dif-nao">
+        <div class="dt">O que você NÃO recebe</div>
+        <ul>
+          <li>Opinião de amiga que toma partido</li>
+          <li>Conselho vazio de "larga logo"</li>
+          <li>Julgamento sobre o que você fez ou deixou de fazer</li>
+          <li>Decisão de terceiros sobre a sua vida</li>
+        </ul>
+      </div>
+      <div class="dif-sim">
+        <div class="dt">O que você RECEBE</div>
+        <ul>
+          <li>Leitura clara da dinâmica real de vocês</li>
+          <li>Clareza sobre padrões que se repetem</li>
+          <li>Entendimento do que está por trás das palavras</li>
+          <li>Visão do que está sendo construído ao longo do tempo</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FRASES IMPACTO -->
+  <section class="frases">
+    <div class="frases-inner">
+      <span class="label-secao">Perguntas que não saem da cabeça</span>
+      <h2>Você já se perguntou alguma dessas?</h2>
+      <div class="frases-grid">
+        <div class="frase-card">"Você está sendo amada… ou só acostumada?"</div>
+        <div class="frase-card">"É amor… ou você simplesmente não conseguiu sair ainda?"</div>
+        <div class="frase-card">"Você está feliz… ou apenas aprendeu a aceitar?"</div>
+        <div class="frase-card">"O problema é a relação — ou é não conseguir entendê-la?"</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS -->
+  <section class="dep">
+    <h2>O que disseram depois<br>da primeira análise</h2>
+    <div class="dep-grid">
+      <div class="dep-card">
+        <div class="estrelas">★★★★★</div>
+        <p class="dep-texto">"Eu sabia que algo estava errado mas não conseguia explicar. A análise me mostrou
+          exatamente o que estava acontecendo — e parei de achar que o problema era eu."</p>
+        <div class="dep-autor">
+          <div class="dep-ini">M</div>
+          <div>
+            <div class="dep-nome">Mariana S.</div>
+            <div class="dep-city">São Paulo</div>
+          </div>
+        </div>
+      </div>
+      <div class="dep-card">
+        <div class="estrelas">★★★★★</div>
+        <p class="dep-texto">"Sempre me perguntei se exagerava. Depois da análise entendi que não. Ver escrito o que eu
+          sentia, mas não conseguia nomear, foi libertador."</p>
+        <div class="dep-autor">
+          <div class="dep-ini">J</div>
+          <div>
+            <div class="dep-nome">Juliana R.</div>
+            <div class="dep-city">Curitiba</div>
+          </div>
+        </div>
+      </div>
+      <div class="dep-card">
+        <div class="estrelas">★★★★★</div>
+        <p class="dep-texto">"O que me pegou foi entender o padrão. Não era uma briga isolada. Era um ciclo inteiro que
+          se repetia — e eu nunca tinha visto isso com tanta clareza."</p>
+        <div class="dep-autor">
+          <div class="dep-ini">C</div>
+          <div>
+            <div class="dep-nome">Camila T.</div>
+            <div class="dep-city">Belo Horizonte</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="dep-aviso">⚠️ Substitua pelos depoimentos reais dos seus primeiros clientes.</p>
+  </section>
+
+  <!-- OFERTA -->
+  <section class="oferta" id="oferta">
+    <div class="oferta-inner">
+      <div class="oferta-badge">Oferta de lançamento</div>
+      <h2>Entenda o que está<br>acontecendo <em>de verdade.</em></h2>
+      <p>Menos do que uma sessão de terapia. Sem esperar semanas por uma consulta. Acesso imediato — assim que
+        confirmar.</p>
+
+      <div class="preco-box">
+        <div class="preco-de">De R$ 47,00</div>
+        <div class="preco-label">Por apenas</div>
+        <div class="preco-valor">
+          <span class="preco-rs">R$</span>
+          <span class="preco-num">17</span>
+          <span class="preco-cents">,90</span>
+        </div>
+        <div class="preco-pix">no PIX · ou 2x de R$ 9,42 no cartão</div>
+
+        <div class="inclui">
+          <div class="inclui-item">
+            <div class="inclui-check"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3">
+                <polyline points="20 6 9 17 4 12" />
+              </svg></div>
+            Análise completa do seu relacionamento a partir de uma conversa real
+          </div>
+          <div class="inclui-item">
+            <div class="inclui-check"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3">
+                <polyline points="20 6 9 17 4 12" />
+              </svg></div>
+            Como você está sendo tratada — com clareza e sem rodeios
+          </div>
+          <div class="inclui-item">
+            <div class="inclui-check"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3">
+                <polyline points="20 6 9 17 4 12" />
+              </svg></div>
+            Os padrões que se repetem e o que eles indicam
+          </div>
+          <div class="inclui-item">
+            <div class="inclui-check"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3">
+                <polyline points="20 6 9 17 4 12" />
+              </svg></div>
+            Para onde a relação está indo — e o que pode mudar
+          </div>
+          <div class="inclui-item">
+            <div class="inclui-check"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3">
+                <polyline points="20 6 9 17 4 12" />
+              </svg></div>
+            100% privado · Sem julgamento · Sem te forçar a nenhuma decisão
+          </div>
+        </div>
+      </div>
+
+      <a href="https://pay.hotmart.com/K105161843T?off=gn9swj5j&checkoutMode=10" class="btn-oferta" target="_blank"
+        rel="noopener noreferrer">Quero entender o que está acontecendo agora</a>
+      <p class="oferta-seguro">🔒 Pagamento seguro · Acesso imediato · Garantia de 7 dias</p>
+    </div>
+  </section>
+
+  <!-- GARANTIA -->
+  <section class="garantia">
+    <div class="garantia-inner">
+      <p style="font-size:40px;margin-bottom:14px;">🛡️</p>
+      <h3>7 dias de garantia incondicional</h3>
+      <p>Usa, analisa, lê tudo. Se não sentir que valeu — é só pedir. Devolvo 100% sem perguntas, sem burocracia. O
+        risco é completamente meu.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq">
+    <h2>Dúvidas frequentes</h2>
+
+    <div class="faq-item">
+      <button class="faq-btn" onclick="faq(this)">
+        <span>Minhas mensagens ficam salvas?</span>
+        <span class="faq-ic">+</span>
+      </button>
+      <div class="faq-body">Não. As conversas que você cola são processadas na hora e não ficam armazenadas em nenhum
+        banco de dados. Sua privacidade é absoluta.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-btn" onclick="faq(this)">
+        <span>É uma análise feita por psicólogo?</span>
+        <span class="faq-ic">+</span>
+      </button>
+      <div class="faq-body">É um sistema baseado em psicologia de casal, TCC e análise comportamental. Não substitui
+        terapia — mas te dá clareza que muitas vezes demora meses pra aparecer dentro de um processo terapêutico.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-btn" onclick="faq(this)">
+        <span>O sistema vai me dizer pra terminar ou continuar?</span>
+        <span class="faq-ic">+</span>
+      </button>
+      <div class="faq-body">Não. Jamais. A análise não toma partido e não influencia decisões. Ela te mostra o que está
+        acontecendo — e você decide o que fazer com essa clareza.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-btn" onclick="faq(this)">
+        <span>Posso usar qualquer tipo de conversa?</span>
+        <span class="faq-ic">+</span>
+      </button>
+      <div class="faq-body">Sim — WhatsApp, Instagram, SMS, qualquer formato de texto entre vocês. Quanto mais real a
+        conversa, mais profunda a análise.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-btn" onclick="faq(this)">
+        <span>Como recebo o acesso?</span>
+        <span class="faq-ic">+</span>
+      </button>
+      <div class="faq-body">Assim que o pagamento confirmar, o link chega no seu e-mail. Acesso imediato, no celular ou
+        computador, sem precisar instalar nada.</div>
+    </div>
+  </section>
+
+  <!-- FECHAMENTO -->
+  <section class="fechamento">
+    <h2>Você não precisa mais<br>ficar <em>tentando entender sozinha.</em></h2>
+    <p>O que você sente mas não consegue nomear. O que está acontecendo mas não consegue explicar. Chegou a hora de
+      enxergar com clareza.</p>
     <a href="#oferta" class="btn">
       Quero entender o que está acontecendo
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:17px;height:17px;">
+        <path d="M5 12h14" />
+        <path d="m12 5 7 7-7 7" />
+      </svg>
     </a>
-    <p class="hero-micro">
-      <span>🔒 100% privado</span>
-      <span>·</span>
-      <span>Sem julgamentos</span>
-      <span>·</span>
-      <span>Sem te forçar a nenhuma decisão</span>
-    </p>
-  </div>
-</section>
+  </section>
 
-<div class="div-linha"></div>
+  <!-- RODAPÉ -->
+  <footer>
+    <p>© 2025 Analisa a Conversa · <a href="#">Termos de Uso</a> · <a href="#">Privacidade</a></p>
+  </footer>
 
-<!-- ABERTURA — DOR -->
-<section class="abertura">
-  <h2>Seu relacionamento não era assim no começo.</h2>
-
-  <p>Tinha leveza. Tinha conexão. As coisas eram mais fáceis.</p>
-
-  <p>Mas hoje é diferente.</p>
-
-  <ul class="lista-dor">
-    <li>Vocês brigam pelas mesmas coisas, de novo e de novo</li>
-    <li>Qualquer conversa pode virar discussão sem você entender como chegou lá</li>
-    <li>Você se controla, pesa as palavras, evita certos assuntos</li>
-    <li>Já teve momentos em que preferiu ficar calada pra não piorar</li>
-    <li>Você se machuca… mas releva, engole, segue</li>
-  </ul>
-
-  <p>E em algum momento começou a aparecer uma sensação difícil de nomear.</p>
-
-  <p>Como se você fosse perdendo pedaços de si mesma dentro da relação.</p>
-
-  <div class="frase-ancora">
-    "O que está acontecendo entre a gente?<br>Será que o amor acabou… ou fui eu que mudei?"
-  </div>
-
-  <p>Essa dúvida que não te deixa em paz. Que aparece nas horas mais silenciosas. Que você não sabe bem com quem dividir.</p>
-</section>
-
-<!-- QUEBRA DE ILUSÃO -->
-<section class="quebra">
-  <div class="quebra-inner">
-    <h2>A maioria das pessoas não sofre porque o relacionamento é ruim.</h2>
-
-    <p>Sofre porque <strong style="color:#fff;">não consegue enxergar com clareza</strong> o que está vivendo.</p>
-
-    <ul class="lista-confusao">
-      <li>Confunde amor com apego — e continua por medo de ficar sozinha</li>
-      <li>Confunde cuidado com controle — e acha que é atenção</li>
-      <li>Confunde silêncio com paz — quando na verdade é distância</li>
-      <li>Confunde rotina com conexão — e deixa de perceber que esfriou</li>
-      <li>Normaliza coisas que antes nunca aceitaria — sem perceber que foi acontecendo devagar</li>
-    </ul>
-
-    <p style="color:rgba(255,255,255,.75);">E sem clareza, você fica tentando resolver no escuro. Se perguntando. Se culpando. Sem saber se o que sente faz sentido.</p>
-
-    <div class="frase-imp">
-      "Você está pronta para ter consciência do que o seu relacionamento realmente é… e não do que você gostaria que fosse?"
-    </div>
-  </div>
-</section>
-
-<!-- SOLUÇÃO -->
-<section class="solucao">
-  <span class="label-secao">A partir daqui, tudo muda</span>
-  <h2>Você não precisa mais<br>viver na dúvida.</h2>
-
-  <p>Essa análise não é sobre uma conversa.</p>
-  <p>É sobre o seu relacionamento como um todo.</p>
-  <p>A partir de uma troca de mensagens real entre vocês, você recebe uma leitura profunda que revela o que está por trás das palavras — a dinâmica real de como vocês funcionam juntos.</p>
-
-  <div class="frase-ancora" style="margin-top:36px;">
-    Não é opinião de amiga.<br>
-    Não é conselho vazio.<br>
-    É clareza. Com cuidado. E sem te forçar a nenhuma decisão.
-  </div>
-</section>
-
-<!-- REVELAÇÕES -->
-<section class="rev-section">
-  <div class="rev-inner">
-    <span class="label-secao">O que você vai descobrir</span>
-    <h2>Uma leitura completa<br>do seu relacionamento.</h2>
-    <p class="sub">Em 6 camadas — do que aparece na superfície ao que está se construindo ao longo do tempo.</p>
-
-    <div class="rev-grid">
-      <div class="rev-card">
-        <span class="rev-tag">Sobre você</span>
-        <h3>O seu papel na relação</h3>
-        <ul>
-          <li>Se você está se doando mais do que recebe</li>
-          <li>Se está se anulando sem perceber</li>
-          <li>Como você reage emocionalmente nos conflitos</li>
-          <li>O quanto você está sustentando a relação sozinha</li>
-        </ul>
-      </div>
-
-      <div class="rev-card">
-        <span class="rev-tag">Sobre o outro</span>
-        <h3>Como ele/ela realmente age</h3>
-        <ul>
-          <li>Se se aproxima ou se afasta emocionalmente</li>
-          <li>Como lida com conflito — e o que isso revela</li>
-          <li>Se existem sinais de crítica, frieza ou controle</li>
-          <li>O que está sendo dito nas entrelinhas</li>
-        </ul>
-      </div>
-
-      <div class="rev-card">
-        <span class="rev-tag">Sobre os dois</span>
-        <h3>A dinâmica de vocês</h3>
-        <ul>
-          <li>Por que as brigas se repetem sempre no mesmo ponto</li>
-          <li>Quem puxa mais a relação — e o que isso gera</li>
-          <li>Se ainda existe conexão real ou só apego e rotina</li>
-          <li>Se há parceria… ou esforço de um lado só</li>
-        </ul>
-      </div>
-
-      <div class="rev-card">
-        <span class="rev-tag">Alertas</span>
-        <h3>O que pode estar passando despercebido</h3>
-        <ul>
-          <li>Comportamentos que podem estar te machucando</li>
-          <li>Padrões que você pode ter normalizado ao longo do tempo</li>
-          <li>Sinais sutis de desvalorização ou desgaste emocional</li>
-        </ul>
-      </div>
-
-      <div class="rev-card">
-        <span class="rev-tag">Futuro</span>
-        <h3>Para onde isso está indo</h3>
-        <ul>
-          <li>Como a relação tende a evoluir se nada mudar</li>
-          <li>O que pode acontecer a longo prazo</li>
-          <li>E o que muda se houver ajustes entre vocês</li>
-        </ul>
-      </div>
-
-      <div class="rev-card">
-        <span class="rev-tag">Caminhos</span>
-        <h3>O que ainda pode melhorar</h3>
-        <ul>
-          <li>Como a comunicação entre vocês pode evoluir</li>
-          <li>O que pode ser ajustado para fortalecer a relação</li>
-          <li>Onde ainda existe espaço para reconexão</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ALERTA EMOCIONAL -->
-<section class="alerta">
-  <div class="alerta-box">
-    <h3>Algumas coisas que essa análise pode revelar sobre como você está sendo tratada:</h3>
-    <ul>
-      <li>Se você sente que precisa "pisar em ovos" — e o que isso indica</li>
-      <li>Se sua voz está sendo ignorada ou invalidada dentro da relação</li>
-      <li>Se existe falta de reciprocidade — carinho, presença, esforço</li>
-      <li>Se há sinais de manipulação, controle ou desvalorização sutil</li>
-      <li>Se você está se adaptando a coisas que antes nunca aceitaria</li>
-    </ul>
-    <p>Não é pra assustar. É pra iluminar o que às vezes você sente… mas não consegue nomear.</p>
-    <p class="nota">A análise não vai te dizer o que fazer. Ela vai te mostrar o que você precisa enxergar.</p>
-  </div>
-</section>
-
-<!-- FUTURO -->
-<section class="futuro">
-  <div class="futuro-inner">
-    <span class="label-secao" style="color:rgba(184,84,96,.9);display:block;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px;">O que ninguém te conta</span>
-    <h2>O problema não é só o que vocês estão vivendo.</h2>
-    <p>É não conseguir entender o que isso significa — e onde está levando.</p>
-
-    <div class="grid-futuro">
-      <div class="futuro-card">
-        <span class="ft-label">Se nada mudar</span>
-        <p>Você vai entender como essa relação tende a evoluir — e o que pode acontecer a longo prazo se os padrões continuarem.</p>
-      </div>
-      <div class="futuro-card">
-        <span class="ft-label">Se houver ajustes</span>
-        <p>Você vai ver onde ainda existe espaço real de melhora — e o que precisaria mudar para a relação se fortalecer.</p>
-      </div>
-      <div class="futuro-card">
-        <span class="ft-label">Em qualquer caso</span>
-        <p>Você vai sair sabendo o que está acontecendo. Não apenas sentindo. E isso muda tudo.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- DIFERENCIAL -->
-<section class="dif">
-  <span class="label-secao" style="display:block;text-align:center;">O que você recebe</span>
-  <h2>Uma leitura que ninguém<br>ao seu redor consegue te dar.</h2>
-  <p>Não porque não te amam. Porque não enxergam de fora com clareza.</p>
-
-  <div class="dif-grid">
-    <div class="dif-nao">
-      <div class="dt">O que você NÃO recebe</div>
-      <ul>
-        <li>Opinião de amiga que toma partido</li>
-        <li>Conselho vazio de "larga logo"</li>
-        <li>Julgamento sobre o que você fez ou deixou de fazer</li>
-        <li>Decisão de terceiros sobre a sua vida</li>
-      </ul>
-    </div>
-    <div class="dif-sim">
-      <div class="dt">O que você RECEBE</div>
-      <ul>
-        <li>Leitura clara da dinâmica real de vocês</li>
-        <li>Clareza sobre padrões que se repetem</li>
-        <li>Entendimento do que está por trás das palavras</li>
-        <li>Visão do que está sendo construído ao longo do tempo</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- FRASES IMPACTO -->
-<section class="frases">
-  <div class="frases-inner">
-    <span class="label-secao">Perguntas que não saem da cabeça</span>
-    <h2>Você já se perguntou alguma dessas?</h2>
-    <div class="frases-grid">
-      <div class="frase-card">"Você está sendo amada… ou só acostumada?"</div>
-      <div class="frase-card">"É amor… ou você simplesmente não conseguiu sair ainda?"</div>
-      <div class="frase-card">"Você está feliz… ou apenas aprendeu a aceitar?"</div>
-      <div class="frase-card">"O problema é a relação — ou é não conseguir entendê-la?"</div>
-    </div>
-  </div>
-</section>
-
-<!-- DEPOIMENTOS -->
-<section class="dep">
-  <h2>O que disseram depois<br>da primeira análise</h2>
-  <div class="dep-grid">
-    <div class="dep-card">
-      <div class="estrelas">★★★★★</div>
-      <p class="dep-texto">"Eu sabia que algo estava errado mas não conseguia explicar. A análise me mostrou exatamente o que estava acontecendo — e parei de achar que o problema era eu."</p>
-      <div class="dep-autor">
-        <div class="dep-ini">M</div>
-        <div>
-          <div class="dep-nome">Mariana S.</div>
-          <div class="dep-city">São Paulo</div>
-        </div>
-      </div>
-    </div>
-    <div class="dep-card">
-      <div class="estrelas">★★★★★</div>
-      <p class="dep-texto">"Sempre me perguntei se exagerava. Depois da análise entendi que não. Ver escrito o que eu sentia, mas não conseguia nomear, foi libertador."</p>
-      <div class="dep-autor">
-        <div class="dep-ini">J</div>
-        <div>
-          <div class="dep-nome">Juliana R.</div>
-          <div class="dep-city">Curitiba</div>
-        </div>
-      </div>
-    </div>
-    <div class="dep-card">
-      <div class="estrelas">★★★★★</div>
-      <p class="dep-texto">"O que me pegou foi entender o padrão. Não era uma briga isolada. Era um ciclo inteiro que se repetia — e eu nunca tinha visto isso com tanta clareza."</p>
-      <div class="dep-autor">
-        <div class="dep-ini">C</div>
-        <div>
-          <div class="dep-nome">Camila T.</div>
-          <div class="dep-city">Belo Horizonte</div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <p class="dep-aviso">⚠️ Substitua pelos depoimentos reais dos seus primeiros clientes.</p>
-</section>
-
-<!-- OFERTA -->
-<section class="oferta" id="oferta">
-  <div class="oferta-inner">
-    <div class="oferta-badge">Oferta de lançamento</div>
-    <h2>Entenda o que está<br>acontecendo <em>de verdade.</em></h2>
-    <p>Menos do que uma sessão de terapia. Sem esperar semanas por uma consulta. Acesso imediato — assim que confirmar.</p>
-
-    <div class="preco-box">
-      <div class="preco-de">De R$ 47,00</div>
-      <div class="preco-label">Por apenas</div>
-      <div class="preco-valor">
-        <span class="preco-rs">R$</span>
-        <span class="preco-num">17</span>
-        <span class="preco-cents">,90</span>
-      </div>
-      <div class="preco-pix">no PIX · ou 2x de R$ 9,42 no cartão</div>
-
-      <div class="inclui">
-        <div class="inclui-item">
-          <div class="inclui-check"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-          Análise completa do seu relacionamento a partir de uma conversa real
-        </div>
-        <div class="inclui-item">
-          <div class="inclui-check"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-          Como você está sendo tratada — com clareza e sem rodeios
-        </div>
-        <div class="inclui-item">
-          <div class="inclui-check"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-          Os padrões que se repetem e o que eles indicam
-        </div>
-        <div class="inclui-item">
-          <div class="inclui-check"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-          Para onde a relação está indo — e o que pode mudar
-        </div>
-        <div class="inclui-item">
-          <div class="inclui-check"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-          100% privado · Sem julgamento · Sem te forçar a nenhuma decisão
-        </div>
-      </div>
-    </div>
-
-    <a href="https://pay.hotmart.com/K105161843T?off=gn9swj5j&checkoutMode=10" class="btn-oferta" target="_blank" rel="noopener noreferrer">Quero entender o que está acontecendo agora</a>
-    <p class="oferta-seguro">🔒 Pagamento seguro · Acesso imediato · Garantia de 7 dias</p>
-  </div>
-</section>
-
-<!-- GARANTIA -->
-<section class="garantia">
-  <div class="garantia-inner">
-    <p style="font-size:40px;margin-bottom:14px;">🛡️</p>
-    <h3>7 dias de garantia incondicional</h3>
-    <p>Usa, analisa, lê tudo. Se não sentir que valeu — é só pedir. Devolvo 100% sem perguntas, sem burocracia. O risco é completamente meu.</p>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section class="faq">
-  <h2>Dúvidas frequentes</h2>
-
-  <div class="faq-item">
-    <button class="faq-btn" onclick="faq(this)">
-      <span>Minhas mensagens ficam salvas?</span>
-      <span class="faq-ic">+</span>
-    </button>
-    <div class="faq-body">Não. As conversas que você cola são processadas na hora e não ficam armazenadas em nenhum banco de dados. Sua privacidade é absoluta.</div>
-  </div>
-
-  <div class="faq-item">
-    <button class="faq-btn" onclick="faq(this)">
-      <span>É uma análise feita por psicólogo?</span>
-      <span class="faq-ic">+</span>
-    </button>
-    <div class="faq-body">É um sistema baseado em psicologia de casal, TCC e análise comportamental. Não substitui terapia — mas te dá clareza que muitas vezes demora meses pra aparecer dentro de um processo terapêutico.</div>
-  </div>
-
-  <div class="faq-item">
-    <button class="faq-btn" onclick="faq(this)">
-      <span>O sistema vai me dizer pra terminar ou continuar?</span>
-      <span class="faq-ic">+</span>
-    </button>
-    <div class="faq-body">Não. Jamais. A análise não toma partido e não influencia decisões. Ela te mostra o que está acontecendo — e você decide o que fazer com essa clareza.</div>
-  </div>
-
-  <div class="faq-item">
-    <button class="faq-btn" onclick="faq(this)">
-      <span>Posso usar qualquer tipo de conversa?</span>
-      <span class="faq-ic">+</span>
-    </button>
-    <div class="faq-body">Sim — WhatsApp, Instagram, SMS, qualquer formato de texto entre vocês. Quanto mais real a conversa, mais profunda a análise.</div>
-  </div>
-
-  <div class="faq-item">
-    <button class="faq-btn" onclick="faq(this)">
-      <span>Como recebo o acesso?</span>
-      <span class="faq-ic">+</span>
-    </button>
-    <div class="faq-body">Assim que o pagamento confirmar, o link chega no seu e-mail. Acesso imediato, no celular ou computador, sem precisar instalar nada.</div>
-  </div>
-</section>
-
-<!-- FECHAMENTO -->
-<section class="fechamento">
-  <h2>Você não precisa mais<br>ficar <em>tentando entender sozinha.</em></h2>
-  <p>O que você sente mas não consegue nomear. O que está acontecendo mas não consegue explicar. Chegou a hora de enxergar com clareza.</p>
-  <a href="#oferta" class="btn">
-    Quero entender o que está acontecendo
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:17px;height:17px;"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-  </a>
-</section>
-
-<!-- RODAPÉ -->
-<footer>
-  <p>© 2025 Analisa a Conversa · <a href="#">Termos de Uso</a> · <a href="#">Privacidade</a></p>
-</footer>
-
-<script>
-function faq(btn){
-  var item=btn.parentElement;
-  var open=item.classList.contains('open');
-  document.querySelectorAll('.faq-item').forEach(function(i){ i.classList.remove('open'); });
-  if(!open)item.classList.add('open');
-}
-</script>
+  <script>
+    function faq(btn) {
+      var item = btn.parentElement;
+      var open = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(function (i) { i.classList.remove('open'); });
+      if (!open) item.classList.add('open');
+    }
+  </script>
 </body>
+
 </html>
