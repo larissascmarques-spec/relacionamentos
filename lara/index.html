@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lara — Análise de Conversa</title>
+  <title>Lara — Prompt + Acesso</title>
   <style>
     * { box-sizing: border-box; }
     body {
@@ -25,7 +25,7 @@
       margin-bottom: 16px;
     }
     h1 { margin: 0 0 8px; color: #7a2d39; }
-    .sub { margin: 0; color: #6a4a54; }
+    .sub { margin: 0; color: #6a4a54; line-height: 1.5; }
     label { display: block; font-weight: bold; margin: 10px 0 6px; }
     textarea {
       width: 100%;
@@ -47,9 +47,10 @@
       font-size: 15px;
       cursor: pointer;
       margin-top: 12px;
+      margin-right: 10px;
     }
-    button:disabled { opacity: 0.6; cursor: wait; }
-    .hint { font-size: 13px; color: #6a4a54; margin-top: 8px; }
+    button:disabled { opacity: 0.6; cursor: not-allowed; }
+    .hint { font-size: 13px; color: #6a4a54; margin-top: 8px; line-height: 1.45; }
     .error {
       background: #fff0f1;
       border: 1px solid #f2c7cd;
@@ -69,39 +70,138 @@
       font-family: Arial, Helvetica, sans-serif;
       margin: 0;
     }
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    @media (max-width: 860px) {
+      .row { grid-template-columns: 1fr; }
+    }
+    .small {
+      font-size: 12.5px;
+      color: #6a4a54;
+      margin: 6px 0 0;
+    }
+    .pill {
+      display: inline-block;
+      font-size: 12px;
+      color: #7a2d39;
+      background: #f7eaec;
+      border: 1px solid rgba(184,84,96,.25);
+      padding: 6px 10px;
+      border-radius: 999px;
+      margin-top: 10px;
+    }
   </style>
 </head>
 <body>
   <div class="wrap">
     <div class="card">
       <h1>Lara</h1>
-      <p class="sub">Análise cuidadosa de conversas de relacionamento (WhatsApp e similares).</p>
+      <p class="sub"><strong>Prompt + acesso.</strong> Você vai colar o prompt no ChatGPT e receber uma análise profunda, humana e cuidadosa — sem julgamentos.</p>
+      <span class="pill">Sem API • Sem custo adicional (por enquanto)</span>
+      <p class="hint">Como usar: 1) Cole contexto + conversa abaixo → 2) Clique em “Gerar” → 3) Clique em “Copiar” → 4) Cole no ChatGPT → 5) Envie.</p>
     </div>
 
     <div class="card">
-      <label for="contexto">Contexto (opcional)</label>
-      <textarea id="contexto" placeholder="Ex.: estamos juntos há 2 anos e tivemos discussões frequentes nas últimas semanas."></textarea>
+      <div class="row">
+        <div>
+          <label for="contexto">Contexto (opcional)</label>
+          <textarea id="contexto" placeholder="Ex.: estamos juntos há 2 anos e tivemos discussões frequentes nas últimas semanas."></textarea>
+          <p class="small">Dica: 2–4 linhas já ajudam muito.</p>
+        </div>
+        <div>
+          <label for="conversa">Conversa (obrigatório)</label>
+          <textarea id="conversa" placeholder="Cole aqui a conversa exportada do WhatsApp (ou trechos)."></textarea>
+          <p class="small">Aceita texto livre ou export do WhatsApp.</p>
+        </div>
+      </div>
 
-      <label for="conversa">Conversa (obrigatório)</label>
-      <textarea id="conversa" placeholder="Cole aqui a conversa exportada do WhatsApp..."></textarea>
-
-      <button id="analisarBtn">Analisar com a Lara</button>
-      <p class="hint">Formato aceito: texto livre ou export do WhatsApp.</p>
+      <button id="gerarBtn">Gerar prompt pronto para colar</button>
+      <button id="copiarBtn" disabled>Copiar prompt</button>
       <div id="errorBox" class="error"></div>
     </div>
 
     <div class="card">
-      <label>Resultado da análise</label>
-      <pre id="resultado">A análise aparecerá aqui.</pre>
+      <label>Prompt pronto (cole no ChatGPT)</label>
+      <pre id="promptFinal">Clique em “Gerar prompt pronto para colar”.</pre>
     </div>
   </div>
 
   <script>
-    const btn = document.getElementById("analisarBtn");
-    const resultado = document.getElementById("resultado");
+    const gerarBtn = document.getElementById("gerarBtn");
+    const copiarBtn = document.getElementById("copiarBtn");
+    const promptFinal = document.getElementById("promptFinal");
     const errorBox = document.getElementById("errorBox");
 
-    async function analisar() {
+    const SYSTEM_PROMPT = `Você é a agente "Lara", uma analista de comunicação em relacionamentos amorosos, com base em psicologia (especialmente terapia de casais, comunicação interpessoal, análise de comportamento e princípios da TCC).
+
+Você escreve com um tom humano, emocionalmente cuidadoso, empático e respeitoso — como uma profissional experiente conversando com alguém que está vulnerável. Você não é fria, robótica ou genérica.
+
+OBJETIVO:
+Oferecer uma leitura profunda e responsável da dinâmica da conversa, trazendo clareza emocional e reflexão — sem induzir decisões impulsivas.
+
+REGRAS FUNDAMENTAIS (OBRIGATÓRIAS):
+- Nunca trate interpretações como verdades absolutas.
+- Nunca tire conclusões definitivas.
+- Nunca sugira término, afastamento ou decisões radicais.
+- Não realize diagnósticos psicológicos ou psiquiátricos.
+- Não julgue nenhuma das partes.
+- Não use linguagem alarmista ou acusatória.
+- Sempre use linguagem de possibilidade.
+
+LINGUAGEM OBRIGATÓRIA DE HIPÓTESE:
+Use expressões como:
+"Pode indicar que..."
+"Uma possível interpretação é..."
+"Isso pode sugerir..."
+"É possível que..."
+Evite frases conclusivas.
+
+ESTRUTURA OBRIGATÓRIA DA ANÁLISE (use exatamente):
+1. Comunicação
+2. Emoções
+3. Análise Cognitiva (TCC)
+4. Padrões de Interação
+5. Hipóteses Centrais (linguagem de possibilidade)
+6. Reflexão Guiada
+
+Em "Reflexão Guiada", faça de 5 a 8 perguntas abertas e nunca diga o que a pessoa deve fazer.
+
+IMPORTANTE:
+- Se a conversa vier em export do WhatsApp, reconheça linhas com data/hora/nome e ignore ruídos como “mídia omitida” ou avisos automáticos.
+- Se faltar contexto, reconheça limites com cuidado e faça hipóteses leves.
+
+FINAL OBRIGATÓRIO:
+Inclua no final:
+"Limites desta análise: esta leitura é interpretativa e baseada apenas no recorte enviado. Ela não substitui terapia ou avaliação profissional."`;
+
+    function montarPrompt(contexto, conversa) {
+      return `${SYSTEM_PROMPT}
+
+Agora analise a conversa abaixo seguindo EXATAMENTE esta estrutura:
+1) Comunicação
+2) Emoções
+3) Análise Cognitiva (TCC)
+4) Padrões de Interação
+5) Hipóteses Centrais (linguagem de possibilidade)
+6) Reflexão Guiada
+
+Regras:
+- Não concluir nada de forma definitiva
+- Não sugerir término ou decisão radical
+- Não diagnosticar
+- Tom humano, empático e cuidadoso (sem ser genérico)
+
+CONTEXTO (opcional):
+${contexto || "(não informado)"}
+
+CONVERSA:
+${conversa}`.trim();
+    }
+
+    function gerar() {
       const contexto = document.getElementById("contexto").value || "";
       const conversa = document.getElementById("conversa").value || "";
 
@@ -112,32 +212,24 @@
       }
 
       errorBox.style.display = "none";
-      btn.disabled = true;
-      resultado.textContent = "Gerando análise...";
+      promptFinal.textContent = montarPrompt(contexto, conversa);
+      copiarBtn.disabled = false;
+    }
 
+    async function copiar() {
       try {
-        const resp = await fetch("/api/lara", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ contexto, conversa })
-        });
-
-        const data = await resp.json();
-        if (!resp.ok) {
-          throw new Error(data.error || "Falha ao gerar análise.");
-        }
-
-        resultado.textContent = data.analysis || "Sem resposta.";
-      } catch (err) {
+        await navigator.clipboard.writeText(promptFinal.textContent || "");
+        const old = copiarBtn.textContent;
+        copiarBtn.textContent = "Copiado!";
+        setTimeout(() => (copiarBtn.textContent = old), 1200);
+      } catch (e) {
         errorBox.style.display = "block";
-        errorBox.textContent = err.message || "Erro inesperado.";
-        resultado.textContent = "A análise aparecerá aqui.";
-      } finally {
-        btn.disabled = false;
+        errorBox.textContent = "Não consegui copiar automaticamente. Selecione o texto e copie manualmente.";
       }
     }
 
-    btn.addEventListener("click", analisar);
+    gerarBtn.addEventListener("click", gerar);
+    copiarBtn.addEventListener("click", copiar);
   </script>
 </body>
 </html>

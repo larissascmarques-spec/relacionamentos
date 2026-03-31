@@ -6,6 +6,7 @@ Projeto estático pronto para deploy na Vercel.
 
 - `index.html`: landing page principal
 - `vercel.json`: configuração básica da Vercel
+- `lara/`: página de acesso do produto (entrega do prompt)
 
 ## Deploy na Vercel
 
@@ -24,3 +25,11 @@ O botão de compra atualmente aponta para:
 - `https://pay.hotmart.com/K105161843T?off=gn9swj5j&checkoutMode=10`
 
 Se necessário, altere esse link em `index.html` antes do deploy.
+
+## Produto (sem API)
+
+O acesso do cliente fica em:
+
+- `/lara`
+
+Essa página gera um **prompt pronto** para colar no ChatGPT (sem integrações, sem custo por enquanto).
